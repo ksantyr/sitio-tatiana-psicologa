@@ -1,17 +1,29 @@
 ---
-
+import '../styles/global.css';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tatiana Isaza — Psicóloga</title>
+  </head>
+  <body>
+    <h1 class="font-heading text-primary text-4xl p-8">
+      Tatiana Isaza · Psicóloga
+    </h1>
+    <p class="font-body text-text-muted text-lg px-8">
+      Sitio en construcción…
+    </p>
+
+    <!-- Preview de paleta (temporal) -->
+    <div class="flex gap-4 p-8 flex-wrap">
+      <div class="w-24 h-24 rounded-lg bg-primary"        title="primary"></div>
+      <div class="w-24 h-24 rounded-lg bg-primary-light"  title="primary-light"></div>
+      <div class="w-24 h-24 rounded-lg bg-accent"         title="accent"></div>
+      <div class="w-24 h-24 rounded-lg bg-accent-light"   title="accent-light"></div>
+      <div class="w-24 h-24 rounded-lg bg-bg-soft border" title="bg-soft"></div>
+    </div>
+  </body>
 </html>
