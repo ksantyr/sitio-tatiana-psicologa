@@ -9,9 +9,11 @@ interface Props {
   description?: string;
 }
 
+const SITE_URL = 'https://tatiana-isaza-psicologa.netlify.app';
+
 const {
-  title = 'Tatiana Isaza — Psicóloga',
-  description = 'Psicóloga profesional especializada en terapia individual y de parejas. Agenda tu cita hoy.',
+  title = 'Tatiana Isaza — Psicóloga | Terapia individual en línea',
+  description = 'Psicóloga con enfoque cognitivo-conductual. Acompaño tu proceso de bienestar con empatía y profesionalismo. Terapia individual en línea, disponible desde cualquier lugar.',
 } = Astro.props;
 ---
 
@@ -21,12 +23,30 @@ const {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <meta name="keywords" content="psicóloga en línea, terapia cognitivo conductual, ansiedad, depresión, autoestima, terapia individual, bienestar emocional, Tatiana Isaza, psicología Colombia" />
+    <meta name="author" content="Tatiana Isaza" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#7a9e87" />
 
+    <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={SITE_URL} />
     <meta property="og:locale" content="es_CO" />
+    <meta property="og:site_name" content="Tatiana Isaza Psicóloga" />
+    <meta property="og:image" content={`${SITE_URL}/images/tatiana-hero.jpg`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Tatiana Isaza — Psicóloga, terapia individual en línea" />
 
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${SITE_URL}/images/tatiana-hero.jpg`} />
+
+    <link rel="canonical" href={SITE_URL} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
 
