@@ -1,0 +1,93 @@
+---
+const formacion = [
+  'Psicóloga — Universidad [placeholder]',
+  'Especialización en Psicología Clínica — [placeholder]',
+  'Diplomado en Terapia Cognitivo-Conductual — [placeholder]',
+];
+
+const modalidades = [
+  'Terapia Cognitivo-Conductual',
+  'Mindfulness',
+  'Terapia de Aceptación y Compromiso',
+  'Enfoque Humanista',
+];
+---
+
+<section id="sobre-mi" class="py-24 bg-bg-soft">
+  <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+
+    <!-- Foto -->
+    <div class="flex justify-center">
+      <div class="relative w-64 h-[22rem]">
+
+        <!-- Forma decorativa detrás (invertida respecto al Hero) -->
+        <div class="absolute inset-0 bg-accent/30 rounded-[40%_60%_60%_40%/40%_40%_60%_60%] rotate-6 scale-105"></div>
+
+        <!-- Contenedor de imagen -->
+        <div class="absolute inset-0 overflow-hidden rounded-[40%_60%_60%_40%/40%_40%_60%_60%] bg-gradient-to-b from-accent-light/60 to-primary-light/40">
+          <img
+            src="/images/tatiana-sobre-mi.jpg"
+            alt="Tatiana Isaza en consulta"
+            class="w-full h-full object-cover object-top"
+          />
+        </div>
+
+        <!-- Círculos decorativos -->
+        <div class="absolute -top-4 -right-4 w-16 h-16 bg-primary-light/50 rounded-full -z-10"></div>
+        <div class="absolute -bottom-4 -left-4 w-12 h-12 bg-accent/40 rounded-full -z-10"></div>
+      </div>
+    </div>
+
+    <!-- Texto -->
+    <div>
+      <span class="inline-block font-body text-xs text-primary tracking-[0.25em] uppercase mb-4">
+        Sobre mí
+      </span>
+
+      <h2 class="font-heading text-3xl md:text-4xl text-text leading-snug mb-6">
+        Conoce a tu psicóloga
+      </h2>
+
+      <p class="font-body text-text-muted leading-relaxed mb-8">
+        Soy Tatiana Isaza, psicóloga clínica con [X] años de experiencia
+        acompañando a personas en sus procesos de transformación personal.
+        Mi trabajo se centra en crear un ambiente de confianza donde puedas
+        explorar tus emociones y encontrar herramientas para vivir mejor.
+        <!-- Reemplazar con bio real -->
+      </p>
+
+      <!-- Formación -->
+      <div class="mb-8">
+        <h3 class="font-heading text-lg text-primary-dark mb-4">Formación</h3>
+        <ul class="space-y-3">
+          {formacion.map(item => (
+            <li class="flex items-start gap-3 font-body text-sm text-text-muted">
+              <span class="mt-1 w-2 h-2 rounded-full bg-accent flex-shrink-0"></span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Enfoque terapéutico -->
+      <div>
+        <h3 class="font-heading text-lg text-primary-dark mb-4">Enfoque terapéutico</h3>
+        <p class="font-body text-sm text-text-muted leading-relaxed mb-5">
+          Trabajo desde un enfoque integrador, adaptando las herramientas
+          terapéuticas a las necesidades únicas de cada persona.
+          <!-- Reemplazar con texto real -->
+        </p>
+
+        <!-- Etiquetas de modalidades -->
+        <div class="flex flex-wrap gap-2">
+          {modalidades.map(tag => (
+            <span class="font-body text-xs text-primary-dark bg-primary-light/30 border border-primary-light px-3 py-1.5 rounded-full">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
