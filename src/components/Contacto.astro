@@ -10,7 +10,7 @@ const CALENDARIO = 'https://calendar.google.com/calendar/appointments/schedules/
   <div class="max-w-5xl mx-auto px-6">
 
     <!-- Encabezado -->
-    <div class="text-center mb-16">
+    <div class="text-center mb-12">
       <span class="inline-block font-body text-xs text-primary tracking-[0.25em] uppercase mb-4">
         Hablemos
       </span>
@@ -21,7 +21,7 @@ const CALENDARIO = 'https://calendar.google.com/calendar/appointments/schedules/
     </div>
 
     <!-- Google Calendar -->
-    <div class="bg-bg rounded-2xl border border-primary-light/20 shadow-sm overflow-hidden mb-12">
+    <div class="bg-bg rounded-2xl border border-primary-light/20 shadow-sm overflow-hidden mb-8">
       <div class="px-6 py-5 border-b border-primary-light/20 flex items-center justify-between gap-4">
         <div class="flex items-center gap-3">
           <div class="w-9 h-9 bg-primary/10 text-primary rounded-lg flex items-center justify-center flex-shrink-0">
@@ -53,218 +53,86 @@ const CALENDARIO = 'https://calendar.google.com/calendar/appointments/schedules/
       ></iframe>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-12 items-start">
+    <!-- Redes sociales y contacto en fila horizontal -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
 
-      <!-- Formulario -->
-      <div class="bg-bg rounded-2xl p-8 shadow-sm border border-primary-light/20">
-        <form
-          name="contacto"
-          method="POST"
-          action="/gracias"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          class="space-y-5"
-        >
-          <input type="hidden" name="form-name" value="contacto" />
-          <input type="hidden" name="bot-field" />
-
-          <!-- Nombre -->
-          <div>
-            <label for="nombre" class="block font-body text-sm text-text mb-1.5">
-              Nombre <span class="text-accent">*</span>
-            </label>
-            <input
-              type="text"
-              id="nombre"
-              name="nombre"
-              required
-              placeholder="Tu nombre completo"
-              class="w-full font-body text-sm text-text bg-bg-soft border border-primary-light/40 rounded-xl px-4 py-3 outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition placeholder:text-text-muted/50"
-            />
-          </div>
-
-          <!-- Email -->
-          <div>
-            <label for="email" class="block font-body text-sm text-text mb-1.5">
-              Correo electrónico <span class="text-accent">*</span>
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              placeholder="tu@correo.com"
-              class="w-full font-body text-sm text-text bg-bg-soft border border-primary-light/40 rounded-xl px-4 py-3 outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition placeholder:text-text-muted/50"
-            />
-          </div>
-
-          <!-- Servicio -->
-          <div>
-            <label for="servicio" class="block font-body text-sm text-text mb-1.5">
-              ¿Qué servicio te interesa?
-            </label>
-            <select
-              id="servicio"
-              name="servicio"
-              class="w-full font-body text-sm text-text bg-bg-soft border border-primary-light/40 rounded-xl px-4 py-3 outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition"
-            >
-              <option value="">Selecciona una opción</option>
-              <option value="individual">Terapia Individual</option>
-              <option value="parejas">Terapia de Pareja</option>
-              <option value="familiar">Terapia Familiar</option>
-              <option value="online">Sesiones Online</option>
-              <option value="otro">Otro / No sé aún</option>
-            </select>
-          </div>
-
-          <!-- Número de contacto -->
-          <div>
-            <label for="telefono" class="block font-body text-sm text-text mb-1.5">
-              Número de contacto <span class="text-accent">*</span>
-            </label>
-            <input
-              type="tel"
-              id="telefono"
-              name="telefono"
-              required
-              placeholder="+57 300 000 0000"
-              class="w-full font-body text-sm text-text bg-bg-soft border border-primary-light/40 rounded-xl px-4 py-3 outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition placeholder:text-text-muted/50"
-            />
-          </div>
-
-          <!-- Fecha de nacimiento -->
-          <div>
-            <label for="fecha_nacimiento" class="block font-body text-sm text-text mb-1.5">
-              Fecha de nacimiento
-            </label>
-            <input
-              type="date"
-              id="fecha_nacimiento"
-              name="fecha_nacimiento"
-              class="w-full font-body text-sm text-text bg-bg-soft border border-primary-light/40 rounded-xl px-4 py-3 outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition"
-            />
-          </div>
-
-          <!-- Mensaje -->
-          <div>
-            <label for="mensaje" class="block font-body text-sm text-text mb-1.5">
-              Mensaje <span class="text-accent">*</span>
-            </label>
-            <textarea
-              id="mensaje"
-              name="mensaje"
-              required
-              rows="4"
-              placeholder="Cuéntame brevemente cómo te puedo ayudar…"
-              class="w-full font-body text-sm text-text bg-bg-soft border border-primary-light/40 rounded-xl px-4 py-3 outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition placeholder:text-text-muted/50 resize-none"
-            ></textarea>
-          </div>
-
-          <button
-            type="submit"
-            class="w-full bg-primary text-white font-body text-sm py-3 rounded-full hover:bg-primary-dark transition-colors duration-200"
-          >
-            Enviar mensaje
-          </button>
-
-          <p class="font-body text-xs text-text-muted text-center">
-            Te responderé en un plazo de 24 horas.
-          </p>
-        </form>
-      </div>
-
-      <!-- Info de contacto -->
-      <div class="space-y-6">
-
-        <!-- WhatsApp -->
-        <a
-          href={`https://wa.me/${WHATSAPP}?text=Hola%20Tatiana%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita.`}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex items-center gap-4 bg-bg rounded-2xl p-6 border border-primary-light/20 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 group"
-        >
-          <div class="w-12 h-12 bg-[#25D366]/10 text-[#25D366] rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#25D366] group-hover:text-white transition-colors duration-200">
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.507 3.933 1.395 5.61L0 24l6.555-1.368A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.888.811.826-3.783-.236-.387A9.818 9.818 0 1112 21.818z"/>
-            </svg>
-          </div>
-          <div>
-            <p class="font-body text-sm font-semibold text-text">WhatsApp</p>
-            <p class="font-body text-sm text-text-muted">Escríbeme directamente</p>
-          </div>
-          <svg class="w-4 h-4 text-text-muted ml-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+      <!-- WhatsApp -->
+      <a
+        href={`https://wa.me/${WHATSAPP}?text=Hola%20Tatiana%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita.`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex flex-col items-center gap-3 bg-bg rounded-2xl p-5 border border-primary-light/20 hover:shadow-md hover:-translate-y-1 transition-all duration-200 group text-center"
+      >
+        <div class="w-12 h-12 bg-[#25D366]/10 text-[#25D366] rounded-xl flex items-center justify-center group-hover:bg-[#25D366] group-hover:text-white transition-colors duration-200">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.507 3.933 1.395 5.61L0 24l6.555-1.368A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.888.811.826-3.783-.236-.387A9.818 9.818 0 1112 21.818z"/>
           </svg>
-        </a>
+        </div>
+        <div>
+          <p class="font-body text-sm font-semibold text-text">WhatsApp</p>
+          <p class="font-body text-xs text-text-muted">Escríbeme</p>
+        </div>
+      </a>
 
-        <!-- Email -->
-        <a
-          href={`mailto:${EMAIL}`}
-          class="flex items-center gap-4 bg-bg rounded-2xl p-6 border border-primary-light/20 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 group"
-        >
-          <div class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:text-white transition-colors duration-200">
-            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-            </svg>
-          </div>
-          <div>
-            <p class="font-body text-sm font-semibold text-text">Correo electrónico</p>
-            <p class="font-body text-sm text-text-muted">{EMAIL}</p>
-          </div>
-          <svg class="w-4 h-4 text-text-muted ml-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+      <!-- Email -->
+      <a
+        href={`mailto:${EMAIL}`}
+        class="flex flex-col items-center gap-3 bg-bg rounded-2xl p-5 border border-primary-light/20 hover:shadow-md hover:-translate-y-1 transition-all duration-200 group text-center"
+      >
+        <div class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-200">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
           </svg>
-        </a>
+        </div>
+        <div>
+          <p class="font-body text-sm font-semibold text-text">Email</p>
+          <p class="font-body text-xs text-text-muted">Correo electrónico</p>
+        </div>
+      </a>
 
-        <!-- Instagram -->
-        <a
-          href={INSTAGRAM}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex items-center gap-4 bg-bg rounded-2xl p-6 border border-primary-light/20 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 group"
-        >
-          <div class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:text-white transition-colors duration-200">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-            </svg>
-          </div>
-          <div>
-            <p class="font-body text-sm font-semibold text-text">Instagram</p>
-            <p class="font-body text-sm text-text-muted">@tatianaisazapsi</p>
-          </div>
-          <svg class="w-4 h-4 text-text-muted ml-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+      <!-- Instagram -->
+      <a
+        href={INSTAGRAM}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex flex-col items-center gap-3 bg-bg rounded-2xl p-5 border border-primary-light/20 hover:shadow-md hover:-translate-y-1 transition-all duration-200 group text-center"
+      >
+        <div class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-200">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
           </svg>
-        </a>
+        </div>
+        <div>
+          <p class="font-body text-sm font-semibold text-text">Instagram</p>
+          <p class="font-body text-xs text-text-muted">@tatianaisazapsi</p>
+        </div>
+      </a>
 
-        <!-- TikTok -->
-        <a
-          href={TIKTOK}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex items-center gap-4 bg-bg rounded-2xl p-6 border border-primary-light/20 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 group"
-        >
-          <div class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:text-white transition-colors duration-200">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/>
-            </svg>
-          </div>
-          <div>
-            <p class="font-body text-sm font-semibold text-text">TikTok</p>
-            <p class="font-body text-sm text-text-muted">@tatianaisazapsi</p>
-          </div>
-          <svg class="w-4 h-4 text-text-muted ml-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+      <!-- TikTok -->
+      <a
+        href={TIKTOK}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex flex-col items-center gap-3 bg-bg rounded-2xl p-5 border border-primary-light/20 hover:shadow-md hover:-translate-y-1 transition-all duration-200 group text-center"
+      >
+        <div class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-200">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/>
           </svg>
-        </a>
+        </div>
+        <div>
+          <p class="font-body text-sm font-semibold text-text">TikTok</p>
+          <p class="font-body text-xs text-text-muted">@tatianaisazapsi</p>
+        </div>
+      </a>
 
-        <!-- Nota de confidencialidad -->
-        <p class="font-body text-xs text-text-muted text-center leading-relaxed px-2">
-          🔒 Toda la información compartida es estrictamente confidencial.
-        </p>
-
-      </div>
     </div>
+
+    <!-- Nota de confidencialidad -->
+    <p class="font-body text-xs text-text-muted text-center leading-relaxed mt-8">
+      🔒 Toda la información compartida es estrictamente confidencial.
+    </p>
+
   </div>
 </section>
