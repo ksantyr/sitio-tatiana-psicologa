@@ -3,18 +3,18 @@
 
 @theme {
   /* ── Colores principales ── */
-  --color-primary:       #6b8f6e; /* verde salvia */
-  --color-primary-light: #a8c4a2;
-  --color-primary-dark:  #4a6e4d;
+  --color-primary:       #b87a8a; /* rosa mauve */
+  --color-primary-light: #d4a8b5;
+  --color-primary-dark:  #8e5a6d;
 
-  --color-accent:        #c49a8a; /* rosa polvoso */
-  --color-accent-light:  #ddbcaf;
+  --color-accent:        #e8b49a; /* durazno cálido */
+  --color-accent-light:  #f2d0be;
 
-  --color-bg:            #faf8f5; /* blanco cálido */
-  --color-bg-soft:       #f0ede8; /* crema suave */
+  --color-bg:            #fdf7f8; /* blanco con tinte rosa */
+  --color-bg-soft:       #f5ecee; /* rosa muy suave */
 
-  --color-text:          #2d3a2e; /* verde pizarra oscuro */
-  --color-text-muted:    #6b7c6d;
+  --color-text:          #2e2028; /* ciruela oscura */
+  --color-text-muted:    #7a5e66;
 
   /* ── Tipografía ── */
   --font-heading: 'Playfair Display', Georgia, serif;
