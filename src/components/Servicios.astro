@@ -2,83 +2,69 @@
 import { servicios } from '../data/servicios.js';
 
 const iconos = {
-  individual: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-  </svg>`,
-  parejas: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
-  </svg>`,
-  familiar: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-    <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-  </svg>`,
   online: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
     <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0H3" />
   </svg>`,
 };
+
+const servicio = servicios[0];
 ---
 
 <section id="servicios" class="py-16 md:py-24 bg-bg">
-  <div class="max-w-5xl mx-auto px-6">
+  <div class="max-w-3xl mx-auto px-6">
 
-    <!-- Encabezado de sección -->
-    <div class="text-center mb-16">
+    <!-- Encabezado -->
+    <div class="text-center mb-12">
       <span class="inline-block font-body text-xs text-primary tracking-[0.25em] uppercase mb-4">
         ¿En qué te puedo ayudar?
       </span>
       <h2 class="font-heading text-3xl md:text-4xl text-text leading-snug">
-        Mis servicios
+        Mi servicio
       </h2>
       <div class="mt-4 mx-auto w-12 h-0.5 bg-accent rounded-full"></div>
     </div>
 
-    <!-- Tarjetas -->
-    <div class="grid sm:grid-cols-2 gap-8">
-      {servicios.map(servicio => (
-        <div class="group bg-bg-soft border border-primary-light/20 rounded-2xl p-8 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+    <!-- Tarjeta única -->
+    <div class="bg-bg-soft border border-primary-light/20 rounded-2xl p-8 md:p-10">
 
-          <!-- Ícono -->
-          <div class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-            <div class="w-6 h-6" set:html={iconos[servicio.icon]} />
-          </div>
-
-          <!-- Título -->
-          <h3 class="font-heading text-xl text-text mb-3">
-            {servicio.titulo}
-          </h3>
-
-          <!-- Descripción -->
-          <p class="font-body text-sm text-text-muted leading-relaxed">
-            {servicio.descripcion}
-          </p>
-
-          <!-- Temas (si existen) -->
-          {servicio.temas && (
-            <div class="mt-5">
-              <p class="font-body text-xs text-primary-dark font-semibold uppercase tracking-widest mb-3">Ideal para trabajar:</p>
-              <ul class="flex flex-wrap gap-2">
-                {servicio.temas.map(tema => (
-                  <li class="font-body text-xs text-text-muted bg-bg border border-primary-light/30 px-3 py-1 rounded-full">
-                    {tema}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
+      <!-- Ícono + título -->
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-14 h-14 bg-primary/10 text-primary rounded-xl flex items-center justify-center flex-shrink-0">
+          <div class="w-7 h-7" set:html={iconos[servicio.icon]} />
         </div>
-      ))}
+        <h3 class="font-heading text-2xl md:text-3xl text-text">
+          {servicio.titulo}
+        </h3>
+      </div>
+
+      <!-- Descripción -->
+      <p class="font-body text-text-muted leading-relaxed mb-8">
+        {servicio.descripcion}
+      </p>
+
+      <!-- Temas -->
+      <div>
+        <p class="font-body text-xs text-primary-dark font-semibold uppercase tracking-widest mb-4">
+          Ideal para trabajar:
+        </p>
+        <div class="flex flex-wrap gap-2">
+          {servicio.temas.map(tema => (
+            <span class="font-body text-sm text-text-muted bg-bg border border-primary-light/30 px-4 py-1.5 rounded-full">
+              {tema}
+            </span>
+          ))}
+        </div>
+      </div>
+
     </div>
 
-    <!-- CTA inferior -->
-    <div class="text-center mt-14">
-      <p class="font-body text-text-muted mb-5">
-        ¿No sabes cuál es el servicio que necesitas? Podemos hablarlo juntas.
-      </p>
+    <!-- CTA -->
+    <div class="text-center mt-10">
       <a
-        href="#contacto"
+        href="/#contacto"
         class="inline-block bg-primary text-white font-body text-sm px-8 py-3 rounded-full hover:bg-primary-dark transition-colors duration-200"
       >
-        Contáctame
+        Agenda tu sesión
       </a>
     </div>
 
