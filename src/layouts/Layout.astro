@@ -41,3 +41,96 @@ const {
     <BotonWhatsApp />
   </body>
 </html>
+
+<script>
+  import Lenis from 'lenis';
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ── Lenis smooth scroll ──────────────────────────────────────────
+  const lenis = new Lenis({ duration: 1.2, smoothWheel: true });
+
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add((time) => lenis.raf(time * 1000));
+  gsap.ticker.lagSmoothing(0);
+
+  // Conectar links de anclaje con Lenis
+  document.querySelectorAll('a[href^="#"], a[href^="/#"]').forEach((anchor) => {
+    anchor.addEventListener('click', (e) => {
+      const href = (anchor as HTMLAnchorElement).getAttribute('href') ?? '';
+      const hash = href.startsWith('/#') ? href.slice(1) : href;
+      const target = document.querySelector(hash);
+      if (target) {
+        e.preventDefault();
+        lenis.scrollTo(hash);
+      }
+    });
+  });
+
+  // ── Helper fade-up con ScrollTrigger ────────────────────────────
+  function fadeUp(selector: string, stagger = 0, extra: object = {}) {
+    gsap.utils.toArray<Element>(selector).forEach((el, i) => {
+      gsap.from(el, {
+        y: 45,
+        opacity: 0,
+        duration: 0.85,
+        delay: stagger * i,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 88%' },
+        ...extra,
+      });
+    });
+  }
+
+  // ── Header ──────────────────────────────────────────────────────
+  gsap.from('header', { y: -70, opacity: 0, duration: 0.9, ease: 'power3.out' });
+
+  // ── Hero ────────────────────────────────────────────────────────
+  gsap.timeline({ delay: 0.15 })
+    .from('#inicio .order-2 > span',   { y: 20, opacity: 0, duration: 0.6, ease: 'power3.out' })
+    .from('#inicio h1',                { y: 50, opacity: 0, duration: 0.9, ease: 'power3.out' }, '-=0.2')
+    .from('#inicio h1 em',             { x: -20, opacity: 0, duration: 0.7, ease: 'power3.out' }, '-=0.5')
+    .from('#inicio p',                 { y: 30, opacity: 0, duration: 0.7, ease: 'power3.out' }, '-=0.3')
+    .from('#inicio .flex.flex-wrap a', { y: 20, opacity: 0, stagger: 0.15, duration: 0.6, ease: 'power3.out' }, '-=0.3')
+    .from('#inicio .order-1',          { scale: 0.88, opacity: 0, duration: 1.1, ease: 'power3.out' }, '<0.3');
+
+  // ── Sobre mí ────────────────────────────────────────────────────
+  fadeUp('#sobre-mi .relative.w-48, #sobre-mi .relative.w-64', 0, { scale: 0.93 });
+  fadeUp('#sobre-mi h2');
+  fadeUp('#sobre-mi > div > div > p');
+  gsap.utils.toArray<Element>('#sobre-mi li').forEach((el, i) => {
+    gsap.from(el, {
+      x: -25, opacity: 0, duration: 0.5, delay: i * 0.07, ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 90%' },
+    });
+  });
+  gsap.utils.toArray<Element>('#sobre-mi .rounded-full').forEach((el, i) => {
+    gsap.from(el, {
+      scale: 0.7, opacity: 0, duration: 0.45, delay: i * 0.06, ease: 'back.out(1.7)',
+      scrollTrigger: { trigger: el, start: 'top 92%' },
+    });
+  });
+
+  // ── Servicios ───────────────────────────────────────────────────
+  fadeUp('#servicios h2');
+  fadeUp('#servicios .bg-bg-soft', 0, { scale: 0.97 });
+  gsap.utils.toArray<Element>('#servicios span.rounded-full').forEach((el, i) => {
+    gsap.from(el, {
+      scale: 0.7, opacity: 0, duration: 0.4, delay: i * 0.05, ease: 'back.out(1.7)',
+      scrollTrigger: { trigger: el, start: 'top 92%' },
+    });
+  });
+  fadeUp('#servicios .text-center.mt-10 a', 0, { scale: 0.95 });
+
+  // ── Contacto ────────────────────────────────────────────────────
+  fadeUp('#contacto h2');
+  fadeUp('#contacto .overflow-hidden', 0, { scale: 0.98 });
+  gsap.utils.toArray<Element>('#contacto .grid > a').forEach((el, i) => {
+    gsap.from(el, {
+      y: 35, opacity: 0, duration: 0.55, delay: i * 0.1, ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 90%' },
+    });
+  });
+</script>
