@@ -51,6 +51,20 @@ const iconos = {
             {servicio.descripcion}
           </p>
 
+          <!-- Temas (si existen) -->
+          {servicio.temas && (
+            <div class="mt-5">
+              <p class="font-body text-xs text-primary-dark font-semibold uppercase tracking-widest mb-3">Ideal para trabajar:</p>
+              <ul class="flex flex-wrap gap-2">
+                {servicio.temas.map(tema => (
+                  <li class="font-body text-xs text-text-muted bg-bg border border-primary-light/30 px-3 py-1 rounded-full">
+                    {tema}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
         </div>
       ))}
     </div>
